@@ -13,7 +13,7 @@ script = ExtResource( 1 )
 margin_left = 20.0
 margin_top = 40.0
 margin_right = 174.0
-margin_bottom = 230.0
+margin_bottom = 360.0
 custom_constants/separation = 10
 
 [node name="FindGizmo" type="Button" parent="VBox"]
@@ -57,16 +57,24 @@ placeholder_text = "AnimPlayer Path"
 placeholder_alpha = 0.3
 caret_blink = true
 
-[node name="CreateTracks" type="Button" parent="VBox"]
+[node name="GizmoPath" type="LineEdit" parent="VBox"]
 margin_top = 212.0
 margin_right = 154.0
-margin_bottom = 232.0
+margin_bottom = 236.0
+placeholder_text = "Gizmo Path"
+placeholder_alpha = 0.3
+caret_blink = true
+
+[node name="CreateTracks" type="Button" parent="VBox"]
+margin_top = 246.0
+margin_right = 154.0
+margin_bottom = 266.0
 text = "Create Tracks"
 
 [node name="InsertKey" type="Button" parent="VBox"]
-margin_top = 242.0
+margin_top = 276.0
 margin_right = 154.0
-margin_bottom = 262.0
+margin_bottom = 296.0
 text = "Insert Key"
 
 [node name="Info" type="Label" parent="."]
@@ -98,5 +106,6 @@ text = "Output"
 [connection signal="text_entered" from="VBox/SkeletonPath" to="." method="_on_SkeletonPath_text_entered"]
 [connection signal="text_entered" from="VBox/Bone" to="." method="_on_Bone_text_entered"]
 [connection signal="text_entered" from="VBox/AnimationPath" to="." method="_on_AnimationPath_text_entered"]
+[connection signal="text_entered" from="VBox/GizmoPath" to="." method="_on_GizmoPath_text_entered"]
 [connection signal="pressed" from="VBox/CreateTracks" to="." method="_on_CreateTracks_pressed"]
 [connection signal="pressed" from="VBox/InsertKey" to="." method="_on_InsertKey_pressed"]

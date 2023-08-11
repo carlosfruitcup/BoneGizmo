@@ -1,6 +1,7 @@
 tool
 extends Control
 
+export(NodePath) var gizmo_path
 var gizmo_node = null
 
 
@@ -23,6 +24,7 @@ func _on_ResetGizmo_pressed():
 func _on_RunGizmo_toggled(button_pressed):
 	if not gizmo_node == null:
 		gizmo_node.run = button_pressed
+		print(button_pressed)
 
 func _on_SkeletonPath_text_entered(new_text):
 	if not gizmo_node == null:
@@ -72,3 +74,7 @@ func _on_InsertKey_pressed():
 			$"Output".set_text("Invalid animation path")
 			return
 		gizmo_node.insert_key()
+
+
+func _on_GizmoPath_text_entered(new_text):
+	gizmo_node = get_node(new_text)

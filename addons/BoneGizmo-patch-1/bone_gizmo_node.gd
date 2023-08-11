@@ -2,6 +2,8 @@ tool
 extends Spatial
 
 var run = false
+var ran_once = false
+var print_once = false
 
 #All paths are must be relative to the node (BoneGizmo)
 export(NodePath) var skeleton_path
@@ -10,13 +12,35 @@ export(String) var animation_path = "../AnimationPlayer"
 
 var skeleton
 var bone_index
+var amount = 0
+var bones = []
 
 func _process(delta):
+	#print('a')
 	if run:
+		skeleton = get_node(skeleton_path)
+		
 		if not edit_bone == "" and not skeleton_path == "":
-			skeleton = get_node(skeleton_path)
 			bone_index = skeleton.find_bone(edit_bone)
 			skeleton.set_bone_pose(bone_index,transform)
+			
+		if ran_once == false:
+			amount = skeleton.get_bone_count() - 1
+			print(amount)
+			ran_once = true
+		
+		
+		if amount > 0:
+			bones.append(skeleton.get_bone_name(amount))
+			amount -= 1
+		
+		if amount <= 0 and !print_once:
+			print(bones)
+			print_once = true
+	else:
+		ran_once = false
+		print_once = false
+		bones = []
 
 
 
