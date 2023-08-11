@@ -1,5 +1,5 @@
 # BoneEditor
-Plugin for Godot Engine
+Plugin for Godot Engine 3.5.2
 Simple Gizmo so you can edit bone transforms easily.
 
 # How to use:
