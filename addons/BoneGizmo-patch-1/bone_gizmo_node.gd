@@ -51,7 +51,7 @@ func create_tracks():
 	print(animation_node.current_animation)
 	for i in range(skeleton_node.get_bone_count()):
 		animation.add_track(Animation.TYPE_TRANSFORM,i)
-		animation.track_set_path(i,skeleton_path + ":" + skeleton_node.get_bone_name(i))
+		animation.track_set_path(i,String(skeleton_node.get_path())+ ":" + skeleton_node.get_bone_name(i))
 
 
 func insert_key(): #This will override all the bone poses in the track with the current ones
